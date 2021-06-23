@@ -1,0 +1,47 @@
+.container-homeScreen{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+.menuBar{
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+}
+.menuBar .heading{
+    margin-top: 10vh;
+    font-family: 'Microsoft Sans Serif', serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+}
+.menuBar .sub-heading{
+    color: white;
+    font-family: "Microsoft Sans Serif", serif;
+    text-align: center;
+    font-size: 0.7rem;
+}
+.menu-container{
+    align-self: center;
+    margin-top: 20vh;
+    max-height: 75vh;
+}
+.menu-item{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 1rem;
+    padding: 20px 10px;
+    color: white;
+    text-align: center;
+}
+
+.menu-item:hover{
+    background: #0a573f;
+    cursor: pointer;
+}
+
+/* Main Body */

@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container-main{
+    background-image: url("/Resources/mainActivity.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.titleHolder{
+    margin-top: 38vh;
+    margin-left: 70vw;
+    margin-right: 5vw;
+}
+.title{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #18865e;
+}
+.tagline{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #18865e;
+}
+.inputHolder{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-left: 65vw;
+    margin-right: 5vw;
+}
+.inputHolder input{
+    width: 30vw;
+    border: none;
+    background: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.loginButton{
+    margin-left: 70vw;
+    margin-top: 20px;
+    margin-right: 5.2vw;
+    padding: 10px;
+    background: #21cb88;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+}
+.loginButton:focus{
+    background: #0bac71;
+}
+.inputHolder .message{
+    font-family: "Microsoft Sans Serif", serif;
+    color: #18865e;
+    text-align:right;
+    font-size: 0.8rem;
+}
+
+@media screen and (min-width: 300px) and (max-width: 830px){
+    .titleHolder{
+        margin-left: 64vw;
+    }
+    .inputHolder{
+        margin-left: 55vw;
+        margin-right: 5vw;
+    }
+    .inputHolder input{
+        width: 40vw;
+    }
+}
+@media screen and (min-height: 400px) and (max-height: 500px){
+    .titleHolder{
+        margin-top: 30vh;
+    }
+}
+@media screen and (min-height: 100px) and (max-height: 400px) {
+    .titleHolder {
+        margin-top: 20vh;
+    }
+}
