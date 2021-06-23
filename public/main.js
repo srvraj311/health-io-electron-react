@@ -1,18 +1,22 @@
 const electron = require("electron");
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 
 require('@electron/remote/main').initialize()
 
 function createWindow(){
     const win = new BrowserWindow({
         width : 1080,
-        height : 640,
+        height : 768,
+        minHeight:768,
+        minWidth:1366,
         webPreferences : {
             enableRemoteModule: true
         }
     })
-
+    // Menu.setApplicationMenu(null)
+    // TODO : Add promise Here
     win.loadURL('http://localhost:3000')
+
 }
 
 app.on('ready', createWindow )

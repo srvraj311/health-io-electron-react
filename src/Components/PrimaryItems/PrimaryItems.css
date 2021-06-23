@@ -2,11 +2,15 @@
 *{
 
 }
+/* TODO : Fix Horizontal Scrollbar Coming on Display*/
 .main-container{
+    align-self: flex-end;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
     margin-left: 20vw;
+    max-width: 80vw;
+    position: static;
 }
 .heading-main{
     width: 80vw;

@@ -59,6 +59,12 @@ class App extends Component {
                        this.updateMessage(response.data.error)
                    }else{
                        console.log(response.data.status)
+                       localStorage.setItem("userdata", JSON.stringify({
+                           email: this.state.email.toLowerCase(),
+                           licence_id:this.state.licence_id,
+                           url:this.state.url
+                       }))
+                       console.log(JSON.parse(localStorage.getItem("userdata")))
                        this.setState({
                            redirect : "/home"
                        })
@@ -69,7 +75,7 @@ class App extends Component {
                }
 
            }).catch((error) => {
-               this.updateMessage("User Not Found with this Email")
+               this.updateMessage("User Not Found with this Email or Licence ID")
            });
        }
     }
@@ -102,10 +108,16 @@ class App extends Component {
         return true;
     }
 
-    render() {
-        if(this.state.redirect) {
-            return <Redirect to={this.state.redirect}/>
+    render() {// Checking If User Already Logged In
+        if(JSON.parse(localStorage.getItem("userdata")) !== null){
+            return <Redirect to="/home"/>
         }
+
+        if(this.state.redirect) {
+            return <Redirect to={this.state.redirect} {...this.state}/>
+        }
+
+
         return(
             <div className="container-main">
                 <div className="titleHolder">

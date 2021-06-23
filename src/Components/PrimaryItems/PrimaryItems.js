@@ -2,8 +2,28 @@ import React, {Component} from 'react';
 import './PrimaryItems.css'
 
 class PrimaryItems extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email:"",
+            licence_id:"",
+            name : "",
+            description: "",
+            address : "",
+            city_name :"",
+            state_name:"",
+            geolocation:"",
+            is_24_hr_service:false,
+            opening_time:"",
+            closing_time:"",
+            days:""
+        }
+    }
+
+
+
     render() {
-        console.log("Primary Screen Selected")
+
         return (
             <div className="main-container">
                 <div className="heading-main"> Primary Details </div>
