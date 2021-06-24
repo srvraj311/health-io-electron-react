@@ -19,10 +19,14 @@ class Home extends Component {
     // Function to get URL , EMAIL, LICENCE_ID from localstorage and then save to state and retrieve them
     UNSAFE_componentWillMount(){
         // Get Hospital and Save to localStorage
-        let licence_id = JSON.parse(localStorage.getItem("userdata")).licence_id
-        let email = JSON.parse(localStorage.getItem("userdata")).email
-        let url = JSON.parse(localStorage.getItem("userdata")).url
-       this.updateStateWithBaseData(licence_id, email, url)
+        try {
+            let licence_id = JSON.parse(localStorage.getItem("userdata")).licence_id
+            let email = JSON.parse(localStorage.getItem("userdata")).email
+            let url = JSON.parse(localStorage.getItem("userdata")).url
+            this.updateStateWithBaseData(licence_id, email, url)
+        } catch (error){
+            console.log(error)
+        }
 
     }
     updateStateWithBaseData(licence_id, email, url){
@@ -56,7 +60,7 @@ class Home extends Component {
                     break;
             }
         }).catch((error) =>{
-            console.log(error);
+            console.log(error.data);
         });
     }
 
@@ -66,7 +70,7 @@ class Home extends Component {
     setComponent = (view) => {
         switch (view){
             case 1:
-                return <PrimaryItems {...this.state}/>
+                return <PrimaryItems url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
             case 2:
                 return <Availability {...this.state}/>
             default:
