@@ -2,6 +2,8 @@ const electron = require("electron");
 const {app, BrowserWindow, Menu} = require('electron')
 
 require('@electron/remote/main').initialize()
+const path = require('path')
+const isDev = require('electron-is-dev')
 
 function createWindow(){
     const win = new BrowserWindow({
@@ -10,13 +12,17 @@ function createWindow(){
         minHeight:768,
         minWidth:1366,
         webPreferences : {
-            enableRemoteModule: true
+            enableRemoteModule: true,
+            preload: __dirname + '/preload.js'
         }
     })
     // Menu.setApplicationMenu(null)
     // TODO : Add promise Here
     win.loadURL('http://localhost:3000')
 
+    win.loadURL(
+        isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
+    )
 }
 
 app.on('ready', createWindow )

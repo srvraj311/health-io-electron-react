@@ -3,6 +3,7 @@ import './PrimaryItems.css'
 import axios from "axios";
 
 
+
 class PrimaryItems extends Component {
     constructor(props) {
         super(props);
@@ -26,18 +27,22 @@ class PrimaryItems extends Component {
 
     UNSAFE_componentWillMount() {
         let hospital = JSON.parse(localStorage.getItem("hospital"));
-        this.setState({
-            name : hospital.name,
-            description : hospital.description,
-            address : hospital.address,
-            city_name : hospital.city_name,
-            state_name : hospital.state_name,
-            geolocation : hospital.geolocation,
-            is_24_hr_service: hospital.is_24_hr_service,
-            opening_time : hospital.opening_time,
-            closing_time : hospital.closing_time,
-            days : hospital.days
-        })
+        try {
+            this.setState({
+                name: hospital.name,
+                description: hospital.description,
+                address: hospital.address,
+                city_name: hospital.city_name,
+                state_name: hospital.state_name,
+                geolocation: hospital.geolocation,
+                is_24_hr_service: hospital.is_24_hr_service,
+                opening_time: hospital.opening_time,
+                closing_time: hospital.closing_time,
+                days: hospital.days
+            })
+        }catch(error){
+            console.log(error)
+        }
     }
 
     serviceTimeHandler = (event) => {
@@ -144,6 +149,7 @@ class PrimaryItems extends Component {
             })
         }).catch((error)=>{
             console.log(error)
+
             this.setState({
                 updateStatus : ""
             })

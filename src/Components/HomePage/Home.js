@@ -4,6 +4,7 @@ import PrimaryItems from "../PrimaryItems/PrimaryItems";
 import Availability from "../Availability/Availability";
 import {Redirect} from "react-router-dom";
 import axios from "axios";
+import classNames from "classnames";
 
 class Home extends Component {
     constructor(props) {
@@ -41,26 +42,9 @@ class Home extends Component {
      componentDidMount(){
         const finalUrl = this.state.url + "admin/hospitals/getHospital/" + this.state.licence_id
         axios.get(finalUrl).then((response) => {
-            switch (response.status){
-                case 500:
-                    console.alert("There is an Error, Kindly Check your LICENCE ID or contact Developer with code ERR_ID_MISMATCH_ADMIN_SIDE");
-                    break;
-                case 404:
-                    console.alert("Network Error, Check Internet");
-                    break;
-                case 400:
-                    console.alert("Bad Request, You need to Login Again");
-                    this.logout();
-                    break;
-                case 200:
-                    this.saveHospital(response.data);
-                    break;
-                default:
-                    console.log("Unable To fetch Hospital, Try Again After Some Time");
-                    break;
-            }
+            this.saveHospital(response.data);
         }).catch((error) =>{
-            console.log(error.data);
+            console.log(error);
         });
     }
 
@@ -77,9 +61,6 @@ class Home extends Component {
                 return <PrimaryItems/>
         }
     }
-    // Function to get Hospital beforehand and Store onto
-
-
     logout = () => {
         localStorage.clear();
         Window.event.reload();
@@ -95,12 +76,12 @@ class Home extends Component {
                     <div className="heading"> Health.IO </div>
                     <div className="sub-heading"> Live Your Choices </div>
                     <div className="menu-container">
-                        <div className="menu-item" onClick={(event) => {
+                        {/*TODO : Change Selected Clause here*/}
+                        <div className="menu-item selected" onClick={(event) => {
                             this.setState({
                                 componentNumber : 1
                             })
                         }}>Primary Details</div>
-
                         <div className="menu-item" onClick={(event)=> {
                             this.setState({
                                 componentNumber : 2
