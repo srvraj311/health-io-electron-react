@@ -45,7 +45,11 @@
 }
 
 .menu-item:hover{
-    background: #0a573f;
+    background: white;
+    color: #0a573f;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    margin-left: 30px;
     cursor: pointer;
 }
 .body-container{

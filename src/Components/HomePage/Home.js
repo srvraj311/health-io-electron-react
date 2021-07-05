@@ -13,7 +13,12 @@ class Home extends Component {
             licence_id: props.licence_id,
             email:props.email,
             url:"",
-            componentNumber : 1
+            componentNumber : 1,
+            primaryDetails : "selected",
+            availabilities : "",
+            facilities : "",
+            bloodBank : "",
+            emergency : ""
         }
 
     }
@@ -27,6 +32,7 @@ class Home extends Component {
             this.updateStateWithBaseData(licence_id, email, url)
         } catch (error){
             console.log(error)
+            this.logout();
         }
 
     }
@@ -77,14 +83,24 @@ class Home extends Component {
                     <div className="sub-heading"> Live Your Choices </div>
                     <div className="menu-container">
                         {/*TODO : Change Selected Clause here*/}
-                        <div className="menu-item selected" onClick={(event) => {
+                        <div className={"menu-item " + this.state.primaryDetails } onClick={(event) => {
                             this.setState({
-                                componentNumber : 1
+                                componentNumber : 1,
+                                primaryDetails : "selected",
+                                availabilities : "",
+                                facilities : "",
+                                bloodBank : "",
+                                emergency : ""
                             })
                         }}>Primary Details</div>
-                        <div className="menu-item" onClick={(event)=> {
+                        <div className={"menu-item " + this.state.availabilities} onClick={(event)=> {
                             this.setState({
-                                componentNumber : 2
+                                componentNumber : 2,
+                                primaryDetails : "",
+                                availabilities : "selected",
+                                facilities : "",
+                                bloodBank : "",
+                                emergency : ""
                             })
                         }}>Availabilities</div>
 

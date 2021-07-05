@@ -138,7 +138,6 @@ class PrimaryItems extends Component {
             closing_time:this.state.closing_time,
             days:this.state.days
         }
-        console.log(details)
         axios({
             method:"post",
             url: `${this.state.url}admin/hospitals/updatePrimary`,
@@ -147,12 +146,21 @@ class PrimaryItems extends Component {
             this.setState({
                 updateStatus : "image-checked"
             })
+
+            window.setTimeout(() => {
+                this.setState({
+                    updateStatus : ""
+                })
+            }, 1000)
+
+
         }).catch((error)=>{
             console.log(error)
 
             this.setState({
-                updateStatus : ""
+                updateStatus : "image-error"
             })
+
         });
     }
 
@@ -241,7 +249,7 @@ class PrimaryItems extends Component {
                     </div>
                 </div>
                 <button type="submit" className="save-button" onClick={(event) => {this.saveDays(); this.onSave()}}> Save </button>
-                <div className={this.state.updateStatus}></div>
+                <div className={this.state.updateStatus}/>
             </div>
         );
     }

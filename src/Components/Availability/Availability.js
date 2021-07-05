@@ -4,8 +4,11 @@ class Availability extends Component {
     render() {
         console.log("Availabilty Screen Selected");
         return (
-            <div>
+            <div className = "main-container">
+                <div className="heading-main">Availabilities</div>
+                <div className="details-container">
 
+                </div>
             </div>
         );
     }
