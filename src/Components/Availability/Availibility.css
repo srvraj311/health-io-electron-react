@@ -1,0 +1,27 @@
+.fraction-box-holder{
+    display: flex;
+    flex-direction: row;
+    justify-items:center;
+    align-items: center;
+}
+.fraction-box-holder input{
+    width: 120px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.details-item{
+    margin-bottom: 30px;
+}
+.save-button{
+    margin-left: 2vw;
+}
+.image-checked {
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-left: 3vw;
+}
+.image-error{
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-left: 3vw;
+}

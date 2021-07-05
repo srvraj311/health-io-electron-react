@@ -175,7 +175,7 @@ class PrimaryItems extends Component {
                         <div className="label">Name:</div>
                         <input type="text" value={this.state.name}
                                onChange={(event) => this.nameHandler(event)} placeholder="Hospital name"  required="true"/>
-                        </div>
+                    </div>
                     <div className="details-item">
                         <div className="label">Description:</div>
                         <input type="text" value={this.state.description}
