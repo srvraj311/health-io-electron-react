@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import './Availibility.css'
+import axios from "axios";
 class Availability extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            url : props.url,
+            email:props.email,
+            licence_id:props.licence_id,
             vacant_bed : "",
             no_of_bed : "",
             vacant_icu : "",
@@ -14,7 +18,7 @@ class Availability extends Component {
             ventilators : "",
             oxygen_cylinders : "",
             vacant_oxygen_cylinders : "",
-            updateStatus : "image-checked"
+            updateStatus : ""
         }
     }
     componentWillMount() {
@@ -35,6 +39,8 @@ class Availability extends Component {
     }
     saveData(){
         let details = {
+            email:this.state.email,
+            licence_id: this.state.licence_id,
             vacant_bed : this.state.vacant_bed,
             no_of_bed : this.state.no_of_bed,
             vacant_icu : this.state.vacant_icu,
@@ -46,6 +52,27 @@ class Availability extends Component {
             oxygen_cylinders : this.state.oxygen_cylinders,
             vacant_oxygen_cylinders : this.state.vacant_oxygen_cylinders,
         }
+        axios.defaults.headers.post["Content-Type"] = "application/json";
+        axios({
+            method:"post",
+            url: `${this.state.url}admin/hospitals/updateAvailability`,
+            data: JSON.stringify(details)
+        }).then((response) => {
+            this.setState({
+                updateStatus : "image-checked"
+            })
+            window.setTimeout(() => {
+                this.setState({
+                    updateStatus : ""
+                })
+            }, 1000)
+        }).catch((error)=>{
+            console.log(error)
+
+            this.setState({
+                updateStatus : "image-error"
+            })
+        });
     }
 
 

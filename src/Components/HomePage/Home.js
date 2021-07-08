@@ -62,7 +62,7 @@ class Home extends Component {
             case 1:
                 return <PrimaryItems url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
             case 2:
-                return <Availability {...this.state}/>
+                return <Availability url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
             default:
                 return <PrimaryItems/>
         }

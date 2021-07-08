@@ -17,7 +17,7 @@ class PrimaryItems extends Component {
             city_name :"",
             state_name:"",
             geolocation:"",
-            is_24_hr_service:false,
+            is_24_hr_service: "",
             opening_time:"",
             closing_time:"",
             days:"",
