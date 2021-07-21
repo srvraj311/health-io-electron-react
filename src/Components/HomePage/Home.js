@@ -4,7 +4,9 @@ import PrimaryItems from "../PrimaryItems/PrimaryItems";
 import Availability from "../Availability/Availability";
 import {Redirect} from "react-router-dom";
 import axios from "axios";
-import classNames from "classnames";
+import BloodBank from "../BloodBank/BloodBank";
+import Facilities from "../Facilities/Facilities";
+import Emergency from "../Emergency/Emergency";
 
 class Home extends Component {
     constructor(props) {
@@ -34,8 +36,8 @@ class Home extends Component {
             console.log(error)
             this.logout();
         }
-
     }
+
     updateStateWithBaseData(licence_id, email, url){
         this.setState({
             url:url,
@@ -63,6 +65,12 @@ class Home extends Component {
                 return <PrimaryItems url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
             case 2:
                 return <Availability url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
+            case 3:
+                return <Facilities url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
+            case 4:
+                return <BloodBank url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email} />
+            case 5:
+                return <Emergency url = {this.state.url} licence_id = {this.state.licence_id} email = {this.state.email}/>
             default:
                 return <PrimaryItems/>
         }
@@ -82,7 +90,6 @@ class Home extends Component {
                     <div className="heading"> Health.IO </div>
                     <div className="sub-heading"> Live Your Choices </div>
                     <div className="menu-container">
-                        {/*TODO : Change Selected Clause here*/}
                         <div className={"menu-item " + this.state.primaryDetails } onClick={(event) => {
                             this.setState({
                                 componentNumber : 1,
@@ -103,10 +110,35 @@ class Home extends Component {
                                 emergency : ""
                             })
                         }}>Availabilities</div>
-
-                        <div className="menu-item">Facilities</div>
-                        <div className="menu-item">Blood-Bank</div>
-                        <div className="menu-item last">Emergency</div>
+                        <div className={"menu-item " + this.state.facilities} onClick={(event)=> {this.setState({
+                            componentNumber : 3,
+                            primaryDetails : "",
+                            availabilities : "",
+                            facilities : "selected",
+                            bloodBank : "",
+                            emergency : ""
+                        })
+                        }}>Facilities</div>
+                        <div className={"menu-item " + this.state.bloodBank} onClick={(event)=> {
+                            this.setState({
+                                componentNumber : 4,
+                                primaryDetails : "",
+                                availabilities : "",
+                                facilities : "",
+                                bloodBank : "selected",
+                                emergency : ""
+                            })
+                        }}>Blood Bank</div>
+                        <div className={"menu-item " + this.state.emergency} onClick={(event)=> {
+                            this.setState({
+                                componentNumber : 5,
+                                primaryDetails : "",
+                                availabilities : "",
+                                facilities : "",
+                                bloodBank : "",
+                                emergency : "selected"
+                            })
+                        }}> Emergency </div>
                     </div>
                 </div>
 

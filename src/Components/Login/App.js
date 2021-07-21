@@ -20,7 +20,6 @@ class App extends Component {
     }
     updateState = (url) => {
         this.setState({
-            // url:url
             url : url
         })
     }
