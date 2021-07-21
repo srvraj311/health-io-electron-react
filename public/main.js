@@ -16,7 +16,7 @@ function createWindow(){
             preload: __dirname + '/preload.js'
         }
     })
-    // Menu.setApplicationMenu(null)
+     Menu.setApplicationMenu(null)
     // TODO : Add promise Here
     win.loadURL('http://localhost:3000')
 

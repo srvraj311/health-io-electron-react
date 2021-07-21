@@ -140,6 +140,9 @@ class Home extends Component {
                             })
                         }}> Emergency </div>
                     </div>
+                    {/*
+                    // TODO: Add Logout Button here.
+                    <button> Logout </button>*/}
                 </div>
 
                 <div className="body-container">
