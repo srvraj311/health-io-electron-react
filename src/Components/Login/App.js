@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import '../../CSS/App/App.css'
+import './App.css'
 import axios from "axios";
 import {Redirect} from "react-router-dom";
 
@@ -28,7 +28,8 @@ class App extends Component {
         axios.get("https://raw.githubusercontent.com/srvraj311/health.io-API/main/url.json").then((response) => {
            this.updateState(response.data.url)
         }).catch((error)=>{
-            this.updateState("http://15.206.123.255:8080/")
+            // this.updateState("http://13.233.215.230:8080/")
+            this.updateState("http://127.0.0.1:8080/")
         })
         console.log("URL Updated")
     }

@@ -20,7 +20,8 @@ class Home extends Component {
             availabilities : "",
             facilities : "",
             bloodBank : "",
-            emergency : ""
+            emergency : "",
+            logout:""
         }
 
     }
@@ -77,7 +78,9 @@ class Home extends Component {
     }
     logout = () => {
         localStorage.clear();
-        Window.event.reload();
+        this.setState({
+            logout:"true"
+        })
     }
 
     render() {
@@ -142,7 +145,8 @@ class Home extends Component {
                     </div>
                     {/*
                     // TODO: Add Logout Button here.
-                    <button> Logout </button>*/}
+                    */}
+                    <div className="menu-item" onClick={(e) => this.logout()}> Logout </div>
                 </div>
 
                 <div className="body-container">

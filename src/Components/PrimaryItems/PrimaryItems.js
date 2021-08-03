@@ -146,7 +146,6 @@ class PrimaryItems extends Component {
             this.setState({
                 updateStatus : "image-checked"
             })
-
             window.setTimeout(() => {
                 this.setState({
                     updateStatus : ""

@@ -35,3 +35,38 @@
 [elevation="5"] {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
+
+
+/* Inner Details */
+.emergency-card{
+    padding-top: 10px;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+.emergency-card .label{
+    padding-top: 7px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    font-family: "Microsoft Sans Serif", serif;
+    color: #0a573f;
+}
+.emergency-card input{
+    margin-left: 20px ;
+    height: 40px;
+    width: fit-content;
+    padding-left: 20px;
+    border: none;
+    background-color: #efefef;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+.emergency-card textarea:focus{
+    outline: none;
+    border: none;
+}
+
+.vertical-flex{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+}

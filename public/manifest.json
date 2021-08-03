@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Health.io - Hospital",
+  "name": "Admin App for Health.io",
   "icons": [
     {
       "src": "favicon.ico",
