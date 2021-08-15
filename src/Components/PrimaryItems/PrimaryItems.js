@@ -143,6 +143,7 @@ class PrimaryItems extends Component {
             url: `${this.state.url}admin/hospitals/updatePrimary`,
             data: JSON.stringify(details)
         }).then((response) => {
+            this.updateLastUpdated();
             this.setState({
                 updateStatus : "image-checked"
             })
@@ -163,6 +164,17 @@ class PrimaryItems extends Component {
         });
     }
 
+    updateLastUpdated(){
+        let date = new Date()
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const finalTime = hour + ":" + minutes + ":" + seconds + " - " + day + "/" + month + "/" + year;
+        localStorage.setItem("last_updated", finalTime)
+    }
 
 
     render() {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Availibility.css'
 import axios from "axios";
+
 class Availability extends Component {
     constructor(props) {
         super(props);
@@ -58,6 +59,7 @@ class Availability extends Component {
             url: `${this.state.url}admin/hospitals/updateAvailability`,
             data: JSON.stringify(details)
         }).then((response) => {
+            this.updateLastUpdated()
             this.setState({
                 updateStatus : "image-checked"
             })
@@ -76,6 +78,17 @@ class Availability extends Component {
     }
 
 
+    updateLastUpdated(){
+        let date = new Date()
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const finalTime = hour + ":" + minutes + ":" + seconds + " - " + day + "/" + month + "/" + year;
+        localStorage.setItem("last_updated", finalTime)
+    }
     render() {
         return (
             <div className = "main-container">

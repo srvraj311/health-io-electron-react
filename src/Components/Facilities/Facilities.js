@@ -72,6 +72,7 @@ class Facilities extends Component {
             url: `${this.state.url}admin/hospitals/updateFacility`,
             data: JSON.stringify(details)
         }).then((res) => {
+            this.updateLastUpdated();
             this.setState({
                 updateStatus : "image-checked"
             })
@@ -85,6 +86,17 @@ class Facilities extends Component {
             console.log("Error")
         })
 
+    }
+    updateLastUpdated(){
+        let date = new Date()
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const finalTime = hour + ":" + minutes + ":" + seconds + " - " + day + "/" + month + "/" + year;
+        localStorage.setItem("last_updated", finalTime)
     }
     render() {
         console.log(this.state)

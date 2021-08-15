@@ -36,6 +36,14 @@
     color: white;
     text-align: center;
 }
+.menu-info-item{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 1rem;
+    padding: 20px 10px;
+    text-align: center;
+    margin-top: 8vh;
+    color: white;
+}
 .selected{
     background: white;
     color: #0a573f;

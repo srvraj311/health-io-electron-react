@@ -35,6 +35,18 @@ class BloodBank extends Component {
         })
     }
 
+    updateLastUpdated(){
+        let date = new Date()
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const finalTime = hour + ":" + minutes + ":" + seconds + " - " + day + "/" + month + "/" + year;
+        localStorage.setItem("last_updated", finalTime)
+    }
+
     // Handlers Below
     aposHandler(e){
         this.setState({
@@ -86,6 +98,7 @@ class BloodBank extends Component {
             url: `${this.state.url}admin/hospitals/updateBloodBank`,
             data: JSON.stringify(details)
         }).then((response) => {
+            this.updateLastUpdated();
             console.log(response.data)
             this.setState({
                 updateStatus : "image-checked"

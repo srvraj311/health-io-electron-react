@@ -21,7 +21,8 @@ class Home extends Component {
             facilities : "",
             bloodBank : "",
             emergency : "",
-            logout:""
+            logout:"",
+            lastUpdated : ""
         }
 
     }
@@ -32,6 +33,9 @@ class Home extends Component {
             let licence_id = JSON.parse(localStorage.getItem("userdata")).licence_id
             let email = JSON.parse(localStorage.getItem("userdata")).email
             let url = JSON.parse(localStorage.getItem("userdata")).url
+            this.setState({
+                lastUpdated : localStorage.getItem("last_updated")
+            })
             this.updateStateWithBaseData(licence_id, email, url)
         } catch (error){
             console.log(error)
@@ -87,6 +91,7 @@ class Home extends Component {
         if(localStorage.length === 0){
            return  <Redirect to="/"  />
         }
+        this.state.lastUpdated = localStorage.getItem("last_updated")
         return (
             <div className="container-homeScreen">
                 <div className="menuBar">
@@ -147,6 +152,8 @@ class Home extends Component {
                     // TODO: Add Logout Button here.
                     */}
                     <div className="menu-item" onClick={(e) => this.logout()}> Logout </div>
+
+                    <div className= "menu-info-item"> Last Updated : {this.state.lastUpdated} <br/> Hospital Licence ID : {this.state.licence_id}</div>
                 </div>
 
                 <div className="body-container">
