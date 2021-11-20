@@ -11,11 +11,13 @@ function createWindow(){
         height : 768,
         minHeight:768,
         minWidth:1366,
+        autoHideMenuBar:false,
         webPreferences : {
             enableRemoteModule: true,
             preload: __dirname + '/preload.js'
         }
     })
+    Menu.setApplicationMenu(new Menu())
     //Menu.setApplicationMenu(null)
     // TODO : Add promise Here
     win.loadURL('http://localhost:3000')
