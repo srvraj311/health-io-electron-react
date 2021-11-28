@@ -1,5 +1,5 @@
 const electron = require("electron");
-const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow} = require('electron')
 
 require('@electron/remote/main').initialize()
 const path = require('path')
@@ -17,7 +17,6 @@ function createWindow(){
             preload: __dirname + '/preload.js'
         }
     })
-    Menu.setApplicationMenu(new Menu())
     //Menu.setApplicationMenu(null)
     // TODO : Add promise Here
     win.loadURL('http://localhost:3000')

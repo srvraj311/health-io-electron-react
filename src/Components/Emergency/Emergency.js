@@ -34,6 +34,7 @@ class Emergency extends Component {
         })
     }
     render() {
+        console.log("Working")
         return (
             <div className = "main-container">
                 <div className="heading-main">Emergency Cases</div>

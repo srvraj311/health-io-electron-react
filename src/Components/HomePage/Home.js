@@ -67,6 +67,13 @@ class Home extends Component {
 
   saveHospital = (data) => {
     localStorage.setItem("hospital", JSON.stringify(data));
+    try {
+      this.setState({
+        lastUpdated: data.last_updated
+      })
+    }catch (e) {
+        console.log(e)
+    }
   };
   setComponent = (view) => {
     switch (view) {
@@ -125,7 +132,6 @@ class Home extends Component {
     if (localStorage.length === 0) {
       return <Redirect to="/" />;
     }
-    this.state.lastUpdated = localStorage.getItem("last_updated");
 
     return (
       <div className="container-homeScreen">

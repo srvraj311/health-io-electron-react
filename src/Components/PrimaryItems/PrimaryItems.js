@@ -26,7 +26,7 @@ class PrimaryItems extends Component {
     }
 
     UNSAFE_componentWillMount() {
-        let hospital = JSON.parse(localStorage.getItem("hospital"));
+        let hospital = JSON.parse(localStorage.getItem("hospital"))
         try {
             this.setState({
                 name: hospital.name,
@@ -43,6 +43,7 @@ class PrimaryItems extends Component {
         }catch(error){
             console.log(error)
         }
+
     }
 
     serviceTimeHandler = (event) => {
