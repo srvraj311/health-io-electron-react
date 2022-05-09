@@ -1,0 +1,68 @@
+.container-homeScreen{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+.menuBar{
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+}
+.menuBar .heading{
+    margin-top: 10vh;
+    font-family: 'Microsoft Sans Serif', serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+}
+.menuBar .sub-heading{
+    color: white;
+    font-family: "Microsoft Sans Serif", serif;
+    text-align: center;
+    font-size: 0.7rem;
+}
+.menu-container{
+    align-self: center;
+    margin-top: 20vh;
+    max-height: 75vh;
+}
+.menu-item{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 1rem;
+    padding: 20px 10px;
+    color: white;
+    text-align: center;
+}
+.menu-info-item{
+    font-family: "Microsoft Sans Serif", serif;
+    font-size: 1rem;
+    padding: 20px 10px;
+    text-align: center;
+    margin-top: 8vh;
+    color: white;
+}
+.selected{
+    background: white;
+    color: #0a573f;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    margin-left: 30px;
+}
+
+.menu-item:hover{
+    background: #affdb8;
+    color: #0a573f;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.body-container{
+    width: 80vw;
+    position: static;
+}
+
+/* Main Body */
