@@ -8,6 +8,7 @@ import BloodBank from "../BloodBank/BloodBank";
 import Facilities from "../Facilities/Facilities";
 import Emergency from "../Emergency/Emergency";
 import CustomDialog from "../../UiComponents/CustomDialog";
+import {Snackbar} from "@mui/material";
 
 class Home extends Component {
   constructor(props) {
@@ -24,6 +25,8 @@ class Home extends Component {
       emergency: "",
       logout: "",
       lastUpdated: "",
+      snackOpen : false,
+      message : "Default Message"
     };
   }
   // Function to get URL , EMAIL, LICENCE_ID from localstorage and then save to state and retrieve them
@@ -53,23 +56,41 @@ class Home extends Component {
 
   // Make a connection and Get hospital Initially
   componentDidMount() {
+
     const finalUrl =
       this.state.url + "admin/hospitals/getHospital/" + this.state.licence_id;
+    console.log(finalUrl)
     axios
       .get(finalUrl)
       .then((response) => {
-        this.saveHospital(response.data);
+        if(response != null) {
+          this.saveHospital(response.data);
+          this.showError("Hospital fetched from Database")
+        }else{
+          this.showError("Unable to get Hospital Data from Server");
+        }
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+  showError(error){
+      this.setState({
+        message : error,
+        snackOpen : true
+      })
+    setTimeout(()=>{
+      this.setState({
+        snackOpen : false
+      })
+    }, 3000)
   }
 
   saveHospital = (data) => {
     localStorage.setItem("hospital", JSON.stringify(data));
     try {
       this.setState({
-        lastUpdated: data.last_updated
+        lastUpdated: data["last_updated"]
       })
     }catch (e) {
         console.log(e)
@@ -218,6 +239,13 @@ class Home extends Component {
           </div>
           <div style={{textAlign:"center"}}>
             <CustomDialog color={"white"} buttonTitle={"Logout"} title={"Confirm Logout"} body={"Are you sure you want to logout ?"} callback={this.logout}/>
+          </div>
+          <div className="snack">
+            <Snackbar
+              open={this.state.snackOpen}
+              autoHideDuration={1000}
+              message={this.state.message}
+          />
           </div>
 
           <div className="menu-info-item">

@@ -64,5 +64,11 @@
     width: 80vw;
     position: static;
 }
+.snack{
+    position: absolute;
+    top: 80%;
+    left:50%;
+}
+
 
 /* Main Body */
